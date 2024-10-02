@@ -1,9 +1,10 @@
-using GerenciadorTarefas.Data; // Certifique-se de que isso está correto
+using GerenciadorTarefas.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configurar o banco de dados SQL Server
+// Configura o banco de dados SQL Server
+builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -11,29 +12,37 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configuração de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader());
+});
+
 var app = builder.Build();
+
+// Aplicando a política de CORS
+app.UseCors("AllowAll");
 
 // Configure o pipeline de requisições HTTP
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage(); // Facilita depuração
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+// Somente aplicar o redirecionamento para HTTPS fora do ambiente de desenvolvimento
 app.UseHttpsRedirection();
 
-// O código abaixo para mapear suas rotas
-app.MapGet("/tarefas", async (AppDbContext db) =>
-{
-    return await db.Tarefas.ToListAsync();
-});
+app.UseAuthorization();
 
-// Resto do código...
+// Mapeia automaticamente os controladores criados
+app.MapControllers();
+
+// Endpoint de teste
+app.MapGet("/teste", () => "API está funcionando!");
 
 app.Run();
-
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
