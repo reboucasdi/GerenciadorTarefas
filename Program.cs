@@ -12,7 +12,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configuração de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader());
+});
+
 var app = builder.Build();
+
+// Aplicando a política de CORS
+app.UseCors("AllowAll");
 
 // Configure o pipeline de requisições HTTP
 if (app.Environment.IsDevelopment())
@@ -22,6 +34,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Somente aplicar o redirecionamento para HTTPS fora do ambiente de desenvolvimento
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
@@ -29,7 +42,7 @@ app.UseAuthorization();
 // Mapeia automaticamente os controladores criados
 app.MapControllers();
 
-//teste
-//app.MapGet("/teste", () => "API está funcionando!");
+// Endpoint de teste
+app.MapGet("/teste", () => "API está funcionando!");
 
 app.Run();
