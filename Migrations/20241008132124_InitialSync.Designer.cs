@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GerenciadorTarefas.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240930193117_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241008132124_InitialSync")]
+    partial class InitialSync
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,15 +33,18 @@ namespace GerenciadorTarefas.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
                     b.Property<DateTime>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataEdicao")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Titulo")
                         .IsRequired()
