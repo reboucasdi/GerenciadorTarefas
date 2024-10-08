@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GerenciadorTarefas.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241007191807_AddDataCriacaoEDataEdicaoToTarefas")]
-    partial class AddDataCriacaoEDataEdicaoToTarefas
+    [Migration("20241008132124_InitialSync")]
+    partial class InitialSync
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

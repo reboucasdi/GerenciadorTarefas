@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GerenciadorTarefas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89416f7155632f013224a064781ed19105f8f1de")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+107d6a23a4ff16eb113c76181d22e14cc9f8203a")]
+>>>>>>> 06225b8 (Recuperar READMEs e incluir migrações corretas)
 [assembly: System.Reflection.AssemblyProductAttribute("GerenciadorTarefas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GerenciadorTarefas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
