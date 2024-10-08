@@ -20,10 +20,10 @@ namespace GerenciadorTarefas.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            // Não precisa remover a coluna, pois já existe
+            // // Não precisa remover a coluna, pois já existe
             // migrationBuilder.DropColumn(
-            //     name: "DataCriacao",
-            //     table: "Tarefas");
+             //   name: "DataCriacao",
+               //  table: "Tarefas");
         }
     }
 }
