@@ -15,6 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89416f7155632f013224a064781ed19105f8f1de")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+107d6a23a4ff16eb113c76181d22e14cc9f8203a")]
@@ -22,6 +23,9 @@ using System.Reflection;
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06225b888e36f8a4de56df27b37462716f616f91")]
 >>>>>>> 5bf2bc6 (Conclusão de testes e sincronia)
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5bf2bc63a1fded7b58a14481bd5ae0313d42d2e9")]
+>>>>>>> 0564d94 (Conclusão de testes e sincronia)
 [assembly: System.Reflection.AssemblyProductAttribute("GerenciadorTarefas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GerenciadorTarefas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
