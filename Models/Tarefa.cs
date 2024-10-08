@@ -17,6 +17,6 @@ namespace GerenciadorTarefas.Models
 
         public DateTime DataCriacao { get; set; } = DateTime.UtcNow; // Data de criação da tarefa
 
-        public DateTime DataEdicao { get; set; } // Adicionar campo DataEdicao (nulo se nunca editado)
+        public DateTime DataEdicao { get; set; } // Data de edição da tarefa
     }
 }
