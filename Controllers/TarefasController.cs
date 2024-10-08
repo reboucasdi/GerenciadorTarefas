@@ -44,42 +44,47 @@ namespace GerenciadorTarefas.Controllers
         // POST: api/tarefas
         [HttpPost]
         public async Task<ActionResult<Tarefa>> PostTarefa(Tarefa tarefa)
-        {
-            _context.Tarefas.Add(tarefa);
-            await _context.SaveChangesAsync();
+{
+        tarefa.DataCriacao = DateTime.Now; // Define a data de criação
 
-            return CreatedAtAction(nameof(GetTarefa), new { id = tarefa.Id }, tarefa);
-        }
+        _context.Tarefas.Add(tarefa);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction(nameof(GetTarefa), new { id = tarefa.Id }, tarefa);
+}
 
         // PUT: api/tarefas/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTarefa(int id, Tarefa tarefa)
+    {
+        if (id != tarefa.Id)
         {
-            if (id != tarefa.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(tarefa).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TarefaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return BadRequest();
         }
+
+        // Atualiza a data de edição
+        tarefa.DataEdicao = DateTime.Now;
+
+        _context.Entry(tarefa).State = EntityState.Modified;
+
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!TarefaExists(id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        return NoContent();
+}
 
         // DELETE: api/tarefas/{id}
         [HttpDelete("{id}")]

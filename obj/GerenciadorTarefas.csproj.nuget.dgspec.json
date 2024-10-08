@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Paper Effect\\Documents\\Projetos\\GerenciadorTarefas\\GerenciadorTarefas\\GerenciadorTarefas.csproj": {}
+    "c:\\Users\\Paper Effect\\Documents\\Projetos\\GerenciadorTarefas\\GerenciadorTarefas\\GerenciadorTarefas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Paper Effect\\Documents\\Projetos\\GerenciadorTarefas\\GerenciadorTarefas\\GerenciadorTarefas.csproj": {
+    "c:\\Users\\Paper Effect\\Documents\\Projetos\\GerenciadorTarefas\\GerenciadorTarefas\\GerenciadorTarefas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Paper Effect\\Documents\\Projetos\\GerenciadorTarefas\\GerenciadorTarefas\\GerenciadorTarefas.csproj",
+        "projectUniqueName": "c:\\Users\\Paper Effect\\Documents\\Projetos\\GerenciadorTarefas\\GerenciadorTarefas\\GerenciadorTarefas.csproj",
         "projectName": "GerenciadorTarefas",
-        "projectPath": "C:\\Users\\Paper Effect\\Documents\\Projetos\\GerenciadorTarefas\\GerenciadorTarefas\\GerenciadorTarefas.csproj",
+        "projectPath": "c:\\Users\\Paper Effect\\Documents\\Projetos\\GerenciadorTarefas\\GerenciadorTarefas\\GerenciadorTarefas.csproj",
         "packagesPath": "C:\\Users\\Paper Effect\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Paper Effect\\Documents\\Projetos\\GerenciadorTarefas\\GerenciadorTarefas\\obj\\",
+        "outputPath": "c:\\Users\\Paper Effect\\Documents\\Projetos\\GerenciadorTarefas\\GerenciadorTarefas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Paper Effect\\AppData\\Roaming\\NuGet\\NuGet.Config"
