@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button} from '@mui/material';
 import { createTarefa, updateTarefa } from '../api';
 import axios from 'axios';
 
 function EdicaoTarefas({ taskToEdit, onTaskSaved }) {  
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [titulo, setTitle] = useState('');
+  const [descricao, setDescription] = useState('');
 
   useEffect(() => {
     if (taskToEdit) {
-      setTitle(taskToEdit.title);
-      setDescription(taskToEdit.description);
+      setTitle(taskToEdit.titulo);
+      setDescription(taskToEdit.descricao);
     }
   }, [taskToEdit]);
 
@@ -19,15 +19,15 @@ function EdicaoTarefas({ taskToEdit, onTaskSaved }) {
 
     if (taskToEdit) {
       axios.put(`http://localhost:5275/api/tarefas/${taskToEdit.id}`, {
-        title,
-        description
+        titulo,
+        descricao
       })
         .then(() => onTaskSaved())
         .catch(error => console.error('Erro ao editar tarefa:', error));
     } else {
       axios.post('http://localhost:5275/api/tarefas', {
-        title,
-        description
+        titulo,
+        descricao
       })
         .then(() => onTaskSaved())
         .catch(error => console.error('Erro ao criar tarefa:', error));
@@ -42,14 +42,14 @@ function EdicaoTarefas({ taskToEdit, onTaskSaved }) {
     <form onSubmit={handleSubmit}>
       <TextField
         label="Título"
-        value={title}
+        value={titulo}
         onChange={(e) => setTitle(e.target.value)}
         required
         fullWidth
       />
       <TextField
         label="Descrição"
-        value={description}
+        value={descricao}
         onChange={(e) => setDescription(e.target.value)}
         required
         fullWidth
@@ -57,8 +57,13 @@ function EdicaoTarefas({ taskToEdit, onTaskSaved }) {
         rows={4}
         margin="normal"
       />
-      <Button type="submit" variant="contained" color="primary">
-        {taskToEdit ? 'Atualizar Tarefa' : 'Criar Tarefa'}
+      <Button 
+      type="submit" 
+      variant="contained" 
+      color="primary"
+      sx={{ marginBottom: '16px' }}
+      >
+        {taskToEdit ? 'Atualizar Tarefa' : 'Criar nova Tarefa'}
       </Button>
     </form>
   );
